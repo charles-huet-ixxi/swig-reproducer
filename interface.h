@@ -1,9 +1,12 @@
-#ifndef INTERFACE_H
-#define INTERFACE_H
+#pragma once
+#include <optional>
+
+namespace epi {
+class Agent {};
+} // namespace epi
 
 class Interface {
 public:
-    virtual void foo() = 0;
+  virtual ~Interface() = default;
+  virtual std::optional<epi::Agent> foo() = 0;
 };
-
-#endif // INTERFACE_H

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(swigInterfaceTest LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
@@ -33,3 +33,11 @@ add_jar(${PROJECT_NAME}
     ${support_files}
 )
 add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}SWIG)
+
+#add_custom_command(
+#    TARGET ${PROJECT_NAME}SWIG
+#    COMMAND echo $test && false
+#    COMMAND sed -i s!$javainterfacename!MediaStrategy! ${CMAKE_CURRENT_BINARY_DIR}/src/main/java/com/smartsystems/ratp/epi/ticketing/MediaStrategyVector.java
+#    COMMAND sed -i 's!SWIGTYPE_p_p_MediaStrategy!MediaStrategySwigImpl!' ${CMAKE_CURRENT_BINARY_DIR}/src/main/java/com/smartsystems/ratp/epi/ticketing/MediaStrategyVector.java
+#    VERBATIM
+#)
